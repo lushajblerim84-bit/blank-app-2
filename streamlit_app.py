@@ -9,7 +9,8 @@ import os
 ERLAUBTE_NUTZER = ["ihre-email@gmail.com", "mitarbeiter@firma.de"]
 
 # Streamlit prüft beim privaten Deployment automatisch die E-Mail des angemeldeten Nutzers
-user_email = st.experimental_user.get("email")
+user_email = st.user.email
+
 
 if not user_email or user_email not in ERLAUBTE_NUTZER:
     st.error("🔒 Zugriff verweigert. Sie haben keine Berechtigung für diese App.")
